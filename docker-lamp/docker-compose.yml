@@ -1,0 +1,41 @@
+version: "3"
+
+networks: 
+    my-network:
+        driver: bridge
+
+
+services: 
+
+    my-php:
+        container_name: php-product
+        image: 'php:latest'
+        hostname: php
+        restart: always
+        networks: 
+            - my-network
+    
+
+    my-httpd:
+        container_name: c-httpd01
+        image: 'httpd:latest'
+        hostname: httpd
+        restart: always
+        networks: 
+            - my-network
+        ports:
+            - "9999:80"
+
+    
+    my-mysql:
+        container_name: mysql-product
+        image: "mysql:latest"
+        hostname: mysql
+        restart: always
+        networks: 
+            - my-network
+        environment: 
+            - MYSQL_ROOT_PASSWORD=vccloud123
+            - MYSQL_DATABASE=db_site
+            - MYSQL_USER=sites
+            - MYSQL_PASSWORD=vccloud123
