@@ -31,7 +31,8 @@
 - `docker run --name mysql-db -e MYSQL_ROOT_PASSWORD=db_pass123 -d mysql`
 
 ## CMD vs ENTRYPOINT
-- `ENTRYPOINT` chỉ chạy khi container chạy.
+- `CMD` được thực hiện khi container khởi chạy -> Có thể ghi đè dễ dang lên command này.
+- `ENTRYPOINT` chỉ chạy khi container chạy -> Không thể ghi đè lên command này. Nếu muốn ghi đè phải chạy container kèm theo option --entrypoint
 
 
 
